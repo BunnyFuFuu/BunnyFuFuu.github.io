@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
@@ -18,7 +18,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
  * 5. Animation and button to revert card to see other projects
  * 6. Easy to integrate into a carousel functionality
  */
-export class Card extends React.Component {
+export class Card extends Component {
     /**
      * Props will include Card title, Github enabled, imgsrc
      * State expanded will be disabled at first
@@ -28,13 +28,7 @@ export class Card extends React.Component {
         this.state = {expanded: false};
     }
     toggleExpand() {
-        if(!this.state.expanded) {
-            // TODO: Expand state
-            this.state.expanded = true;
-        } else {
-            // TODO: Revert state
-            this.state.expanded = false;
-        }
+        this.setState({expanded: !expanded});
     }
     render() {
         return (
