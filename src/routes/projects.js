@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavBar    } from '../components/navbar';
 
 export default class Projects extends Component {
     constructor(props) {
@@ -7,8 +8,13 @@ export default class Projects extends Component {
     }
     render() {
         return (
-            <div>
-
+            <div className="projectsPage">
+                <div className="header"><NavBar/></div>
+                <div className="content">
+                    {
+                        <p>Projects page!</p>
+                    }
+                </div>
             </div>
         )
     }
