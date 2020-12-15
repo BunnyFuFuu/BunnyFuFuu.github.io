@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Introduction from './routes/introduction';
+import Profile from './routes/profile';
+import Projects from './routes/projects';
 
 const routes = [
     { path: "/",         Component: Introduction     },

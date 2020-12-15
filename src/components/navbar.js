@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { NavLink   } from 'react-router-dom';
 import '../App.css';
 
-export default class NavBar extends Component {
+export class NavBar extends Component {
     constructor(props) {
         super(props);
     }
