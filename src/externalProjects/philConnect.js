@@ -1,0 +1,2 @@
+// Use this file to create a manual card for something on Github where it's a repo that I may not directly own but contributed to, format in JSON to concatenate in a list
+// and send to the card component for site modularity

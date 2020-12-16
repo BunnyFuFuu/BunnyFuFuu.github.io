@@ -25,6 +25,7 @@ export class NavBar extends Component {
                 <div class="tabs">
                     <NavLink exact activeClassName="active" className="tabButton" to="/"><p>Introduction</p></NavLink>
                     <NavLink activeClassName="active" className="tabButton" to="/profile"><p>About Me!</p></NavLink>
+                    <NavLink activeClassName="active" className="tabButton" to="/experience"><p>Experience</p></NavLink>
                     <NavLink activeClassName="active" className="tabButton" to="/projects"><p>My Projects</p></NavLink>
                 </div>
             </div>
