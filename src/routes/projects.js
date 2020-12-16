@@ -5,7 +5,7 @@ import Controller from '../controller/controller';
 export default class Projects extends Component {
     constructor(props) {
         super(props);
-        Controller.getReposList().then(() => this.forceUpdate());
+        Controller.getReposCfg().then(() => this.forceUpdate());
     }
     render() {
         return (
