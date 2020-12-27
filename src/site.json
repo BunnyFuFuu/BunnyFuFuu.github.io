@@ -1,3 +1,7 @@
 {
-    "site": "bunnyfufuu.github.io"
+    "site": "bunnyfufuu.github.io",
+    "date": "Oct 2020 - Dec 2020",
+    "thumbnail": "",
+    "status": "IN PROGRESS",
+    "description": "My personal website, created using React to showcase some of the projects and experience I've gained as a software developer. It's semi-automated to make adding new projects or experience relatively seamless."
 }

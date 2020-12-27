@@ -1,2 +1,8 @@
 ## Welcome to my website!
 This is a website created using React, and is meant to showcase myself both as a person and shine a little more light on any professional or project experience I may have gained as a software developer. I partially automated the project updates to work with Github's API so I don't always need to return here to manually make a card and update the site. I basically just get all the public repositories from my account and if they're enabled to be shown on this site (which I implement in each repository by a file containing the data necessary to create the card) then a card will be automatically generated on my Projects tab!
+
+Update 12/21/2020:
+After I discovered that Github limits unauthenticated API requests, I decided that it's probably a lot easier to just redesign the structure to allow a universal script I can use project side to send a site.json config file to this repo and push/redeploy. The reasoning for this is because it's not a collection of data that particularly scales, as I'm the only one adding projects to the website, and that creating an entire backend for it is unnecessary as a result.
+
+Update 12/26/2020:
+After holiday eating, I've made the executive decision to go ahead with just making a full backend for this thing and also probably deploying on Heroku (going to save me money) and also be good REST API experience in addition to what I've already done in the past. I plan on making some form of authentication for myself only so I can add things to the site without actually changing the codebase now that I'm going to probably experiment further with MongoDB to hold my projects and profile. I'll stick with that idea for now.

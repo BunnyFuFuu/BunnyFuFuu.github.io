@@ -22,8 +22,8 @@ class Controller extends EventEmitter {
                 "Content-Type": "application/json"
             }
         });
-        const json = await res.json();
-        this.repos = json.map(r => r["name"]);
+        // res.json().then(json => this.repos = json.map(r => r["name"]));
+        res.json().then(json=>console.log(json))
     }
     
     async getReposCfg() {
