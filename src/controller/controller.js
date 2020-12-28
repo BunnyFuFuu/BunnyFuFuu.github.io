@@ -32,6 +32,10 @@ class Controller extends EventEmitter {
         const jsons = await Promise.all(res.filter(r => r.status == 200).map(async (r) => await r.json()));
         this.configs = jsons.map(r => r["download_url"]);
     }
+
+    isAuthorized() {
+        // TODO: Integrate Auth0 and use the Management API to determine whether the user has the authority to access management or not
+    }
     
 }
 //https://api.github.com/repos/BunnyFuFuu/Personal-Website/contents/README.md
