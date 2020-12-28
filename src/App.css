@@ -60,16 +60,31 @@ a.tabButton {
     color:white!important;
     font-size: 20px;
 }
+
 a.tabButton:hover {
     border-radius: 10px;
     background-color:#006daa;
     transition: all 0.25s cubic-bezier(.17,.67,.83,.67);
 }
+
 a.tabButton.active {
     border-radius: 10px;
     background-color: #006daa;
 }
+
 a.tabButton p {
     vertical-align: middle;
     white-space: nowrap;
+}
+
+/* Begin Introduction specific styling */
+.IntroBanner {
+    font-size: 36px;
+}
+.PFP {
+    border-radius: 50%;
+}
+.IntroBlurb {
+    margin: 2% 5%;
+    font-size: 15px;
 }
