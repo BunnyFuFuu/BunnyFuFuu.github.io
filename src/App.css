@@ -51,28 +51,31 @@ div.tabs {
     height: 75px;
 }
 
-a.tabButton {
+.tabButton {
+    font:'Roboto';
     vertical-align: middle;
     height: 65px;
-    margin: 5px 8%;
+    border-radius: 10px;
+    margin: 5px 8%!important;
     padding: 0 15px 0 15px;
     text-decoration: none;
     color:white!important;
-    font-size: 20px;
+    font-size: 20px!important;
+    text-transform: capitalize!important;
 }
 
-a.tabButton:hover {
+.tabButton:hover {
     border-radius: 10px;
-    background-color:#006daa;
+    background-color:#006daa!important;
     transition: all 0.25s cubic-bezier(.17,.67,.83,.67);
 }
 
-a.tabButton.active {
+.tabButton.active {
     border-radius: 10px;
-    background-color: #006daa;
+    background-color: #00bfff!important;
 }
 
-a.tabButton p {
+.tabButton p {
     vertical-align: middle;
     white-space: nowrap;
 }
@@ -89,8 +92,4 @@ a.tabButton p {
 .IntroBlurb {
     margin: 2% 5%;
     font-size: 15px;
-}
-#ResButton :hover{
-    background-color: #006daa;
-    
 }
