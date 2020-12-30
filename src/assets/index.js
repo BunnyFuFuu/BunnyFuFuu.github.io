@@ -1,3 +1,4 @@
 import PFP from "./pfp.jpg";
+import Resume from './Resume.pdf';
 
-export { PFP };
+export { PFP, Resume };
