@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
 import { NavBar    } from '../components/navbar';
 import '../App.css';
-import { PFP } from '../assets';
-
+import { PFP, Resume } from '../assets';
+import { ResButton } from '../components/resbutton';
 export default class Introduction extends Component {
     constructor(props) {
         super(props);
-
     }
+    
     render() {
         return (
             <div className="introPage">
@@ -24,7 +23,7 @@ export default class Introduction extends Component {
                             website was implemented!). I'm looking to extend my understanding of software development continually
                             with any company willing to provide me with avenues for growth.
                         </p>
-                        <Button variant='contained' id="ResButton">My Resume</Button>
+                        <ResButton variant="contained" href={Resume} target={"_blank"}>Check out my Resume!</ResButton>
                 </div>
             </div>
             
