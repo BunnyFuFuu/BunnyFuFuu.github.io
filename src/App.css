@@ -83,8 +83,14 @@ a.tabButton p {
 }
 .PFP {
     border-radius: 50%;
+    max-width: 20%;
+    height: auto;
 }
 .IntroBlurb {
     margin: 2% 5%;
     font-size: 15px;
+}
+#ResButton :hover{
+    background-color: #006daa;
+    
 }
