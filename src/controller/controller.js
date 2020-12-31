@@ -10,9 +10,14 @@ class Controller extends EventEmitter {
         // Site config files received
         this.configs = [];
 
+        // Array of hobby JSONs as returned by getHobbies
+        this.hobbies = [];
+
         // Binding function calls
         this.getReposList = this.getReposList.bind(this);
         this.getReposCfg  = this.getReposCfg.bind(this);
+        this.getHobbies   = this.getHobbies.bind(this);
+        this.isAuthorized = this.isAuthorized.bind(this);
     }
 
     async getReposList() {
@@ -32,6 +37,15 @@ class Controller extends EventEmitter {
         const jsons = await Promise.all(res.filter(r => r.status == 200).map(async (r) => await r.json()));
         this.configs = jsons.map(r => r["download_url"]);
     }
+
+    /**
+     * Fetches all hobbies from database, returns as JSON
+     */
+    async getHobbies() {
+
+    }
+
+
 
     isAuthorized() {
         // TODO: Integrate Auth0 and use the Management API to determine whether the user has the authority to access management or not

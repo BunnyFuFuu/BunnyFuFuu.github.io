@@ -14,6 +14,4 @@ export const ResButton = withStyles({
             background: "#00bfff",
         },
     }
-    
-    
 })(Button);
