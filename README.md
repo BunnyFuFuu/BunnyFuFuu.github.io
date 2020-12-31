@@ -22,3 +22,6 @@ Progress today:
 - Did some research into authentication and decided on Auth0
 - Set up MongoDB for backend, have yet to actually lay out skeleton code for backend
 - Home page has at least the Intro blurb as well as a still-empty image location (soon)
+
+## Update 12/30/2020:
+Since I'm already making a backend for my database, I had an idea that in order to make authenticated API requests, I can just make an endpoint on the backend do that for me, utilizing my credentials on something that won't necessarily be client-side accessible, with just the results visible to everyone. For now, I've just got it saved in the assets folder where since I'm already trying to get my resume out there, I won't care if it's secure or not unless a malicious entity tries to tamper with it.
