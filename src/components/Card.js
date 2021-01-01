@@ -28,7 +28,7 @@ export class Card extends Component {
         this.state = {expanded: false};
     }
     toggleExpand() {
-        this.setState({expanded: !expanded});
+        //this.setState({expanded: !expanded});
     }
     render() {
         return (

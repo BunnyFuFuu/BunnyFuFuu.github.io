@@ -6,16 +6,17 @@ import HobbyCard  from '../components/hobbycard';
  * @type HobbyDocument
  */
 const testDoc = {
-    title: "Trying this out",
+    title: "Sample Hobby",
     avatar: "A",
-    image: "xd",
-    info: "Yes",
+    image: "../assets/AV.jpg",
+    blurb: "Small sample blurb",
+    info: ["Yes"],
     link: "yes"
 }
 export default class Profile extends Component {
     constructor(props) {
         super(props);
-        Controller.getHobbies().then(this.forceUpdate());
+        Controller.getHobbies().then(console.log("Hobbies retrieved from Mongo"));
     }
     render() {
         return (

@@ -11,9 +11,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
+    maxHeight:300,
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -37,15 +37,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
+const base = "../assets/";
 
 /**
- * @extends {Component< { doc: HobbyDocument }>}
+ * @extends { Component< { doc: HobbyDocument }>}
  */
 export default class HobbyCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false
+            expanded: false,
+            image: require("../assets/AV.jpg"),
         };
     }
     handleExpandClick = () => {
@@ -58,65 +60,34 @@ export default class HobbyCard extends Component {
             <CardHeader
                 avatar={
                 <Avatar aria-label="recipe" className={useStyles.avatar}>
-                    Replace this with this.props.avatar (image)
+                    {this.props.doc.avatar}
                 </Avatar>
                 }
-                title="Replace this with this.props.title"
+                title={this.props.doc.title}
             />
             <CardMedia
+                component="img"
                 className={useStyles.media}
-                image="/static/images/cards/paella.jpg"
-                title="Paella dish"
+                image={this.state.image}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                This impressive paella is a perfect party dish and a fun meal to cook together with your
-                guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                {this.props.doc.blurb}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                <ShareIcon />
-                </IconButton>
                 <IconButton
-                className={clsx(useStyles.expand, {
-                    [useStyles.expandOpen]: this.state.expanded,
-                })}
+                className={useStyles.expanded}
                 onClick={this.handleExpandClick}
                 aria-expanded={this.state.expanded}
                 aria-label="show more"
                 >
-                <ExpandMoreIcon />
+                {this.state.expanded ? <ExpandLessIcon/> : <ExpandMoreIcon/> }
                 </IconButton>
             </CardActions>
             <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                <Typography paragraph>Method:</Typography>
-                <Typography paragraph>
-                    Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                    minutes.
-                </Typography>
-                <Typography paragraph>
-                    Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-                    heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-                    browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-                    and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                    pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-                </Typography>
-                <Typography paragraph>
-                    Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-                    without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-                    medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-                    again without stirring, until mussels have opened and rice is just tender, 5 to 7
-                    minutes more. (Discard any mussels that don’t open.)
-                </Typography>
-                <Typography>
-                    Set aside off of the heat to let rest for 10 minutes, and then serve.
-                </Typography>
+                    {this.props.doc.info.map(i => <Typography>{i}</Typography>)}
                 </CardContent>
             </Collapse>
             </Card>
