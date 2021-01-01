@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -16,7 +15,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: '60%',
+    width: '60%',
   },
   media: {
     height: 0,
