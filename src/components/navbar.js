@@ -18,6 +18,7 @@ const navbutton = withStyles({
     },
       
 })(Button);
+
 export class NavBar extends Component {
     constructor(props) {
         super(props);
