@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavBar } from '../components/navbar';
 import Controller from '../controller/controller';
-import HobbyCard  from '../components/hobbycard';
+import InfoCard from '../components/card';
 
 export default class Profile extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class Profile extends Component {
                 <div className="content">
                     <h1>About Me</h1>
                     <p>Here's a little more about my interests and hobbies!</p>
-                    { Controller.hobbies.map(i => <HobbyCard doc={i}/>) }
+                    { Controller.hobbies.map(i => <InfoCard doc={i}/>) }
                 </div>
             </div>
         )
