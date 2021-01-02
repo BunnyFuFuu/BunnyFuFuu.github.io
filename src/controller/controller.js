@@ -26,22 +26,50 @@ class Controller extends EventEmitter {
      * Fetches all hobbies from database, returns as JSON
      */
     async getHobbies() {
-        
+        try {
+            const res = await fetch("url placeholder for now", {
+                method: "GET"
+            });
+            this.hobbies = await res.json();
+        } catch (e) {
+            this.emit("Error", `Uncaught error in getHobbies()`);
+        }
+
     }
 
+    /**
+     * Fetches all experiences from database, returns as JSON
+     */
     async getExp() {
-
+        try {
+            const res = await fetch("url placeholder for now", {
+                method: "GET"
+            });
+            this.hobbies = await res.json();
+        } catch (e) {
+            this.emit("Error", `Uncaught error in getExp()`);
+        }
     }
 
+    /**
+     * Fetches all projects from database, returns as JSON
+     */
     async getProjects() {
-
+        try {
+            const res = await fetch("url placeholder for now", {
+                method: "GET"
+            });
+            this.hobbies = await res.json();
+        } catch (e) {
+            this.emit("Error", `Uncaught error in getExp()`);
+        }
     }
 
+    // May not necessarily need this, can authenticate endpoint side
     isAuthorized() {
         // TODO: Integrate Auth0 and use the Management API to determine whether the user has the authority to access management or not
     }
     
 }
-//https://api.github.com/repos/BunnyFuFuu/Personal-Website/contents/README.md
 
 export default new Controller();
