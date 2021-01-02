@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-import { hslToRgb, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 export const ResButton = withStyles({
     root: {
