@@ -25,3 +25,6 @@ Progress today:
 
 ## Update 12/30/2020:
 Since I'm already making a backend for my database, I had an idea that in order to make authenticated API requests, I can just make an endpoint on the backend do that for me, utilizing my credentials on something that won't necessarily be client-side accessible, with just the results visible to everyone. For now, I've just got it saved in the assets folder where since I'm already trying to get my resume out there, I won't care if it's secure or not unless a malicious entity tries to tamper with it.
+
+## Update 1/2/2021: 
+A friend told me I can potentially explore using the Google Drive API's MD5 checksum to determine whether or not to generate a new resume or serve the current file. Will explore.
