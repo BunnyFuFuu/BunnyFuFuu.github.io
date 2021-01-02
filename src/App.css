@@ -1,9 +1,10 @@
 .App {
     text-align: center;
+    background-color: #555555;
 }
 
 .App-header {
-    background-color: #555555;
+    background-image: url();
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,6 +13,8 @@
     font-size: calc(10px + 2vmin);
     color: white;
     overflow-y: hidden;
+    animation: homeLoad 1s 0.05s forwards cubic-bezier(.17,.67,.83,.67);
+
 }
 
 div.header {
@@ -27,6 +30,8 @@ div.content {
     top: 50px;
     position: relative;
     margin: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
 }
 
 /* Begin Navbar styling */
@@ -106,13 +111,23 @@ div.subhead {
     font-size: 15px;
 }
 
+@keyframes homeLoad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Begin Profile specific styling */
 div.content h1 {
     margin: 5px;
-    font-size: 48px;
+    font-size: 36px;
 }
 div.content p {
     margin: 5px; 
+    font-size: 24px;
 }
 
 /* Begin Exp specific styling */
@@ -122,16 +137,41 @@ h3.statusIP {
     color: orangered!important;
     margin: auto 50px;
 }
+
 h3.statusComp {
     color: green!important;
     margin: auto 50px;
 
 }
+
 h3.statusPlanned {
-    color: aqua!important;
+    color: darkcyan!important;
     margin: auto 50px;
+}
+
+h4 {
+    color: white;
+}
+
+.MuiTypography-root {
+    color: white!important;
 }
 
 .MuiButton-label {
     text-transform: capitalize;
+}
+
+/* Begin Card specific styling */
+.infoCard {
+    backdrop-filter: blur(5px)!important;
+    background: #111111!important;
+    background: rgba(17, 17, 17, 0.6)!important;
+    color: white!important;
+    margin: 10px!important;
+}
+
+.infoCardMedia {
+    /* max-height: 300px!important; */
+
+    object-fit: contain;
 }
