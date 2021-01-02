@@ -5,17 +5,17 @@ import Controller from '../controller/controller';
 export default class Projects extends Component {
     constructor(props) {
         super(props);
-        Controller.getReposCfg().then(() => this.forceUpdate());
+        Controller.getProjects().then(console.log("Projects retrieved from database"));
     }
     render() {
         return (
             <div className="projectsPage">
                 <div className="header"><NavBar/></div>
                 <div className="content">
-                    {
-                        /*<p>Projects page!</p>*/
-                        Controller.repos.map(r => <p>{r}</p>)
-                    }
+                    <h1>Side Project Archive</h1>
+                    <p>Here's some information about a few side projects I've done along the way!</p>
+                    { Controller.projects.map(r => <p>{r}</p>) }
+                    
                 </div>
             </div>
         )
