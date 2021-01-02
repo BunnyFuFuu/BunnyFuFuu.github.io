@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavBar } from '../components/navbar';
+import ProjectCard from '../components/projectcard';
 import Controller from '../controller/controller';
 
 export default class Projects extends Component {
@@ -14,7 +15,7 @@ export default class Projects extends Component {
                 <div className="content">
                     <h1>Side Project Archive</h1>
                     <p>Here's some information about a few side projects I've done along the way!</p>
-                    { Controller.projects.map(r => <p>{r}</p>) }
+                    { Controller.projects.map(i => <ProjectCard doc={i}/>) }
                     
                 </div>
             </div>

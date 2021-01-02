@@ -15,7 +15,7 @@ export default class Profile extends Component {
                 <div className="content">
                     <h1>About Me</h1>
                     <p>Here's a little more about my interests and hobbies!</p>
-                    { Controller.hobbies.map(i => <HobbyCard doc={i}></HobbyCard>) }
+                    { Controller.hobbies.map(i => <HobbyCard doc={i}/>) }
                 </div>
             </div>
         )
