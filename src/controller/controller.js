@@ -10,7 +10,9 @@ class Controller extends EventEmitter {
         // Array of experience JSONs as returned by getExp
         this.exp = [];
 
-        // Array of project JSONs as returned by getProjects
+        /**
+         * @type Array<ProjectDocument>
+         */
         this.projects = [];
 
         // Binding function calls
@@ -24,7 +26,7 @@ class Controller extends EventEmitter {
      * Fetches all hobbies from database, returns as JSON
      */
     async getHobbies() {
-
+        
     }
 
     async getExp() {
