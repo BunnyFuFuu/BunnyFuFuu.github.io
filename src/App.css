@@ -78,12 +78,18 @@ div.tabs {
 .tabButton.active {
     border-radius: 10px;
     background-color: #00bfff!important;
-    background: linear-gradient(0deg, rgba(0,109,170,1) 0%, rgba(0,191,255,1) 100%);
+    transition: all 0.25s cubic-bezier(.17,.67,.83,.67);
 }
 
 .tabButton p {
     vertical-align: middle;
     white-space: nowrap;
+}
+
+div.subhead {
+    display: flex;
+    width: 95%;
+    justify-content: center;
 }
 
 /* Begin Introduction specific styling */
@@ -107,4 +113,25 @@ div.content h1 {
 }
 div.content p {
     margin: 5px; 
+}
+
+/* Begin Exp specific styling */
+
+/* Begin Project specific styling */
+h3.statusIP {
+    color: orangered!important;
+    margin: auto 50px;
+}
+h3.statusComp {
+    color: green!important;
+    margin: auto 50px;
+
+}
+h3.statusPlanned {
+    color: aqua!important;
+    margin: auto 50px;
+}
+
+.MuiButton-label {
+    text-transform: capitalize;
 }
