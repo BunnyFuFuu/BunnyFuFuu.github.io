@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
-const base = "../assets/";
 
 /**
  * @extends { Component< { doc: HobbyDocument }>}
@@ -46,49 +45,51 @@ export default class HobbyCard extends Component {
         super(props);
         this.state = {
             expanded: false,
-            image: require("../assets/AV.jpg"),
+            image: this.props.doc.image,
         };
     }
+
     handleExpandClick = () => {
         this.state.expanded = !this.state.expanded;
         this.forceUpdate();
     };
+
     render() {
         return (
             <Card className={useStyles.root}>
-            <CardHeader
-                avatar={
-                <Avatar aria-label="recipe" className={useStyles.avatar}>
-                    {this.props.doc.avatar}
-                </Avatar>
-                }
-                title={this.props.doc.title}
-            />
-            <CardMedia
-                component="img"
-                className={useStyles.media}
-                image={this.state.image}
-            />
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                {this.props.doc.blurb}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton
-                className={useStyles.expanded}
-                onClick={this.handleExpandClick}
-                aria-expanded={this.state.expanded}
-                aria-label="show more"
-                >
-                {this.state.expanded ? <ExpandLessIcon/> : <ExpandMoreIcon/> }
-                </IconButton>
-            </CardActions>
-            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                <CardHeader
+                    avatar={
+                    <Avatar className={useStyles.avatar}>
+                        {this.props.doc.avatar}
+                    </Avatar>
+                    }
+                    title={this.props.doc.title}
+                />
+                <CardMedia
+                    component="img"
+                    className={useStyles.media}
+                    image={this.state.image}
+                />
                 <CardContent>
-                    {this.props.doc.info.map(i => <Typography>{i}</Typography>)}
+                    <Typography variant="body2" color="textSecondary" component="p">
+                    {this.props.doc.blurb}
+                    </Typography>
                 </CardContent>
-            </Collapse>
+                <CardActions disableSpacing>
+                    <IconButton
+                    className={useStyles.expanded}
+                    onClick={this.handleExpandClick}
+                    aria-expanded={this.state.expanded}
+                    aria-label="Show more"
+                    >
+                    {this.state.expanded ? <ExpandLessIcon/> : <ExpandMoreIcon/> }
+                    </IconButton>
+                </CardActions>
+                <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        {this.props.doc.info.map(i => <Typography>{i}</Typography>)}
+                    </CardContent>
+                </Collapse>
             </Card>
         );
     }
