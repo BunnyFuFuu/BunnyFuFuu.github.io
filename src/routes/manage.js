@@ -5,8 +5,8 @@ import { NavBar } from '../components/navbar';
 export default class Manage extends Component {
     constructor(props) {
         super(props);
-
     }
+    
     render() {
         return (
             <div className="expPage">
