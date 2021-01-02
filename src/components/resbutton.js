@@ -8,7 +8,7 @@ export const ResButton = withStyles({
         border: 0,
         color: 'white',
         height: 48,
-        padding: '0 30px',
+        padding: '0 8px',
         background: '#006daa',
         '&:hover': {
             background: "#00bfff",
