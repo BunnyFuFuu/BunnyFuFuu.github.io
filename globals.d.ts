@@ -7,7 +7,7 @@ declare type CardDocument = {
     date?: string;
     image: string;
     link?: string;
-    work:  string;
+    work?: string;
     blurb: string;
     info:  string[];
 }
