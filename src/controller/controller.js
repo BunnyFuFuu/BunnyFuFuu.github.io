@@ -1,3 +1,4 @@
+import { Auth0Context, useAuth0, withAuth0 } from "@auth0/auth0-react";
 import { EventEmitter } from "events";
 
 class Controller extends EventEmitter {
@@ -10,6 +11,8 @@ class Controller extends EventEmitter {
         // Array of experience JSONs as returned by getExp
         this.exp = [];
 
+        this.token = "";
+
         /**
          * @type Array<ProjectDocument>
          */
@@ -20,6 +23,7 @@ class Controller extends EventEmitter {
         this.getExp       = this.getExp.bind(this);
         this.getProjects  = this.getProjects.bind(this);
         this.isAuthorized = this.isAuthorized.bind(this);
+        this.init         = this.init.bind(this);
     }
 
     /**
@@ -65,9 +69,14 @@ class Controller extends EventEmitter {
         }
     }
 
-    // May not necessarily need this, can authenticate endpoint side
+    // Use this to make a proxy call
     isAuthorized() {
         // TODO: Integrate Auth0 and use the Management API to determine whether the user has the authority to access management or not
+    }
+
+    init(token) {
+        this.token = token;
+        console.log(token);
     }
     
 }

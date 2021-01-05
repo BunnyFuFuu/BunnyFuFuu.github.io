@@ -7,13 +7,15 @@ import Profile from './routes/profile';
 import Experience from './routes/experience';
 import Projects from './routes/projects';
 import Manage from './routes/manage';
+import Login from './routes/login';
 
 const routes = [
     { path: "/",           Component: Introduction, private: false },
     { path: "/profile",    Component: Profile     , private: false },
     { path: "/experience", Component: Experience  , private: false },
     { path: "/projects",   Component: Projects    , private: false },
-    { path: '/manage',     Component: Manage      , private: true  }
+    { path: "/login",      Component: Login       , private: false },
+    { path: "/manage",     Component: Manage      , private: true  }
 ]
 
 export default () => {
