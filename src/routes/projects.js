@@ -6,7 +6,7 @@ import Controller from '../controller/controller';
 export default class Projects extends Component {
     constructor(props) {
         super(props);
-        Controller.getProjects().then(console.log("Projects retrieved from database"));
+        Controller.getProjects().then(console.log("Projects retrieved from Mongo"));
     }
     render() {
         return (
