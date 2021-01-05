@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -13,18 +12,6 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { ResButton } from './resbutton';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '60%',
-    backdropFilter: 'blur(5px)',
-  },
-  media: {
-    height: 0,
-    maxHeight:300,
-    paddingTop: '56.25%', // 16:9
-  },
-}));
-
 /**
  * @extends { Component< { doc: CardDocument }>}
  */
@@ -34,12 +21,12 @@ export default class InfoCard extends Component {
         this.state = {
             expanded: false,
             image: this.props.doc.image,
-            progress: (this.props.doc.work == "In Progress") ? "statusIP": (this.props.doc.work == "Completed") ? "statusComp" : "statusPlanned",
+            progress: (this.props.doc.work === "In Progress") ? "statusIP": (this.props.doc.work === "Completed") ? "statusComp" : "statusPlanned",
         };
     }
 
     handleExpandClick = () => {
-        this.state.expanded = !this.state.expanded;
+        this.setState({expanded: !this.state.expanded});
         this.forceUpdate();
     };
 
