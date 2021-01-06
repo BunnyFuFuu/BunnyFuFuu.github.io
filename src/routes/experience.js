@@ -6,7 +6,7 @@ import Controller from '../controller/controller';
 export default class Experience extends Component {
     constructor(props) {
         super(props);
-        Controller.getExp().then(console.log("Experience retrieved from Mongo"));
+        Controller.getExp().then(this.forceUpdate());
     }
     render() {
         return (
