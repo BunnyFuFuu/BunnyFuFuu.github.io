@@ -5,10 +5,10 @@ import controller from "../controller/controller";
 
 
 const LoginButton = () => {
-  const { getAccessTokenSilently, loginWithPopup, isLoading } = useAuth0();
+  const { loginWithPopup, isLoading, getIdTokenClaims } = useAuth0();
   return <button onClick={async () => loginWithPopup().then(()=> {
     while(isLoading);
-    getAccessTokenSilently().then(token=>controller.init(token));
+    getIdTokenClaims().then(token=>controller.init(token));
     
   })}>Log In</button>;
 };
