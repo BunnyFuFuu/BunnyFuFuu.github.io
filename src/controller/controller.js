@@ -1,6 +1,5 @@
-import { Auth0Context, useAuth0, withAuth0 } from "@auth0/auth0-react";
 import { EventEmitter } from "events";
-
+import { serverURL } from '../constants';
 class Controller extends EventEmitter {
     constructor(){
         super();
@@ -22,7 +21,6 @@ class Controller extends EventEmitter {
         this.getHobbies   = this.getHobbies.bind(this);
         this.getExp       = this.getExp.bind(this);
         this.getProjects  = this.getProjects.bind(this);
-        this.isAuthorized = this.isAuthorized.bind(this);
         this.init         = this.init.bind(this);
     }
 
@@ -31,10 +29,11 @@ class Controller extends EventEmitter {
      */
     async getHobbies() {
         try {
-            const res = await fetch("url placeholder for now", {
+            const res = await fetch(`${serverURL}hobby/read`, {
                 method: "GET"
             });
-            this.hobbies = await res.json();
+            const json = await res.json();
+            this.hobbies = json.docs;
         } catch (e) {
             this.emit("Error", `Uncaught error in getHobbies()`);
         }
@@ -46,10 +45,13 @@ class Controller extends EventEmitter {
      */
     async getExp() {
         try {
-            const res = await fetch("url placeholder for now", {
-                method: "GET"
+            const res = await fetch(`${serverURL}experience/read`, {
+                method: "GET",
+                headers: {"Access-Control-Allow-Origin": "*"},
             });
-            this.hobbies = await res.json();
+            const json = await res.json();
+            this.exp = json.docs;
+            console.log(this.exp);
         } catch (e) {
             this.emit("Error", `Uncaught error in getExp()`);
         }
@@ -60,23 +62,26 @@ class Controller extends EventEmitter {
      */
     async getProjects() {
         try {
-            const res = await fetch("url placeholder for now", {
+            const res = await fetch(`${serverURL}project/read`, {
                 method: "GET"
             });
-            this.hobbies = await res.json();
+            const json = await res.json();
+            this.projects = json.docs;
         } catch (e) {
             this.emit("Error", `Uncaught error in getExp()`);
         }
     }
 
-    // Use this to make a proxy call
-    isAuthorized() {
-        // TODO: Integrate Auth0 and use the Management API to determine whether the user has the authority to access management or not
-    }
-
+    /**
+     * 
+     * @param { string } token JWT for backend protected endpoint calls
+     */
     init(token) {
+        if(!token) {
+            alert('Failed to retrieve token. Perhaps you do not have authorization?');
+            return;
+        }
         this.token = token;
-        console.log(token);
     }
     
 }
