@@ -6,7 +6,7 @@ import InfoCard from '../components/card';
 export default class Profile extends Component {
     constructor(props) {
         super(props);
-        Controller.getHobbies().then(this.forceUpdate());
+        Controller.get("hobby").then(this.forceUpdate());
     }
     render() {
         return (

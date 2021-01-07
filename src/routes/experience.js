@@ -6,7 +6,7 @@ import Controller from '../controller/controller';
 export default class Experience extends Component {
     constructor(props) {
         super(props);
-        Controller.getExp().then(this.forceUpdate());
+        Controller.get("exp").then(this.forceUpdate());
     }
     render() {
         return (

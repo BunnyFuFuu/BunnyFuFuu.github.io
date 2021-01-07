@@ -1,74 +1,101 @@
 import { EventEmitter } from "events";
 import { serverURL } from '../constants';
+
 class Controller extends EventEmitter {
     constructor(){
         super();
 
-        // Array of hobby JSONs as returned by getHobbies
+        // Array of hobby JSONs as returned by get
+        /**
+         * @type {Array<CardDocument>}
+         */
         this.hobbies = [];
 
-        // Array of experience JSONs as returned by getExp
+        // Array of experience JSONs as returned by get
+        /**
+         * @type {Array<CardDocument>}
+         */
         this.exp = [];
 
         this.token = "";
 
+        // Array of project JSONs as returned by get
         /**
-         * @type Array<ProjectDocument>
+         * @type {Array<CardDocument>}
          */
         this.projects = [];
 
         // Binding function calls
-        this.getHobbies   = this.getHobbies.bind(this);
-        this.getExp       = this.getExp.bind(this);
-        this.getProjects  = this.getProjects.bind(this);
-        this.init         = this.init.bind(this);
+        this.get    = this.get.bind(this);
+        this.create = this.create.bind(this);
+        this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
+        this.init   = this.init.bind(this);
     }
 
     /**
-     * Fetches all hobbies from database, returns as JSON
+     * Gets all docs from the database referenced by type
+     * @param {string} type 
      */
-    async getHobbies() {
+    async get(type) {
+        let ref = {"project": this.projects, "exp": this.exp, "hobby": this.hobbies}[type];
         try {
-            const res = await fetch(`${serverURL}hobby/read`, {
+            const res = await fetch(`${serverURL}${type}/read`, {
                 method: "GET"
             });
             const json = await res.json();
-            this.hobbies = json.docs;
+            ref = json.docs;
         } catch (e) {
-            this.emit("Error", `Uncaught error in getHobbies()`);
-        }
-
-    }
-
-    /**
-     * Fetches all experiences from database, returns as JSON
-     */
-    async getExp() {
-        try {
-            const res = await fetch(`${serverURL}experience/read`, {
-                method: "GET",
-                headers: {"Access-Control-Allow-Origin": "*"},
-            });
-            const json = await res.json();
-            this.exp = json.docs;
-            console.log(this.exp);
-        } catch (e) {
-            this.emit("Error", `Uncaught error in getExp()`);
+            this.emit("Error", `Uncaught error in reading ${type}`);
         }
     }
 
     /**
-     * Fetches all projects from database, returns as JSON
+     * Updates doc on the database referenced by type
+     * @param {string} type 
+     * @param {JSON} doc 
      */
-    async getProjects() {
+    async update(type, doc) {
         try {
-            const res = await fetch(`${serverURL}project/read`, {
-                method: "GET"
+            const res = await fetch(`${serverURL}${type}/update`, {
+                method: "PUT",
+                body: JSON.stringify(doc)
             });
-            const json = await res.json();
-            this.projects = json.docs;
         } catch (e) {
-            this.emit("Error", `Uncaught error in getExp()`);
+            this.emit("Error", `Uncaught error in updating ${type}`);
+        }
+    }
+
+    /**
+     * Deletes doc from the database referenced by type
+     * @param {string} type 
+     * @param {JSON} doc 
+     */
+    async delete(type, doc) {
+        try {
+            const res = await fetch(`${serverURL}${type}/delete`, {
+                method: "DELETE",
+                body: JSON.stringify(doc)
+            });
+
+        } catch (e) {
+            this.emit("Error", `Uncaught error in deleting ${type}`);
+        }
+    }
+
+    /**
+     * Adds doc to the database referenced by type
+     * @param {string} type 
+     * @param {JSON} doc 
+     */
+    async create(type, doc) {
+        try {
+            const res = await fetch(`${serverURL}${type}/create`, {
+                method: "POST",
+                body: JSON.stringify(doc)
+            });
+        } catch (e) {
+            this.emit("Error", `Uncaught error in creating ${type}`);
         }
     }
 
@@ -83,7 +110,6 @@ class Controller extends EventEmitter {
         }
         this.token = token;
     }
-    
 }
 
 export default new Controller();

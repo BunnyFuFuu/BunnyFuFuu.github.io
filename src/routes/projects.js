@@ -6,7 +6,7 @@ import Controller from '../controller/controller';
 export default class Projects extends Component {
     constructor(props) {
         super(props);
-        Controller.getProjects().then(this.forceUpdate());
+        Controller.get("project").then(this.forceUpdate());
     }
     render() {
         return (
