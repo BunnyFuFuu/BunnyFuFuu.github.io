@@ -70,7 +70,7 @@ export default class InfoCard extends Component {
                 </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        {this.props.doc.info.map(i => <div><Typography class="infopar">{i}</Typography><br/></div>)}
+                        {this.props.doc.info.map(i => <div><Typography class="infopar">{i}</Typography></div>)}
                     </CardContent>
                 </Collapse>
             </Card>
