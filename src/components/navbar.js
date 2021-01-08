@@ -13,7 +13,7 @@ const navbutton = withStyles({
         fontSize: '20px',
         margin: '5px 8%',
         '&:hover': {
-            background: '#006daa',
+            background: 'rgb(17, 17, 17, 0.6)',
         },
     },
       

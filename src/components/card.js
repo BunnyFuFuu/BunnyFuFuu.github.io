@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { ResButton } from './resbutton';
+import '../App.css';
 
 /**
  * @extends { Component< { doc: CardDocument }>}
@@ -69,7 +70,7 @@ export default class InfoCard extends Component {
                 </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        {this.props.doc.info.map(i => <Typography>{i}</Typography>)}
+                        {this.props.doc.info.map(i => <div><Typography class="infopar">{i}</Typography><br/></div>)}
                     </CardContent>
                 </Collapse>
             </Card>
