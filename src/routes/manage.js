@@ -143,7 +143,7 @@ export default class Manage extends Component {
                             <ASInput id="image" value={this.state.selected ? this.state.arr[this.state.selected].image: ""}/><br/>
                             <label>Link:</label><br/>
                             <ASInput id="link" value={this.state.selected ? this.state.arr[this.state.selected].link: ""}/><br/>
-                            <label>Work:</label><br/>
+                            <label>Work: (In Progress, Completed, Planned)</label><br/>
                             <ASInput id="work" value={this.state.selected ? this.state.arr[this.state.selected].work: ""}/><br/>
                             <label>Blurb:</label><br/>
                             <ASInput id="blurb" value={this.state.selected ? this.state.arr[this.state.selected].blurb: ""}/><br/>
