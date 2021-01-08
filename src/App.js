@@ -25,7 +25,7 @@ export default () => {
                 <header className="App-header">
                     {
                         routes.map(route => (route.private ?
-                            <PrivateRoute exact path={route.path} component={route.Component} /> :
+                            <PrivateRoute path={route.path} component={route.Component} /> :
                             <Route exact path={route.path} component={route.Component} />))
                     }
                 </header>

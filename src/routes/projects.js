@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import InfoCard from '../components/card';
 import { NavBar } from '../components/navbar';
 import Controller from '../controller/controller';
+import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 export default class Projects extends Component {
     constructor(props) {
@@ -27,6 +29,7 @@ export default class Projects extends Component {
                     <p class="sub">Here's some information about a few side projects I've done along the way!</p>
                     { this.projs && this.projs.map(i => <InfoCard doc={i}/>) }
                 </div>
+                <Button component={NavLink}className="management" to="/manage"></Button>
             </div>
         )
     }
