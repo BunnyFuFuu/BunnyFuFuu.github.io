@@ -12,7 +12,7 @@ const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
                 controller.token ? (
                     <RouteComponent {...routeProps} />
                 ) : (
-                    <Redirect to={`/login${(rest.path || !rest.path) == "/" ? "" : `?redirect=${encodeURIComponent(rest.path)}`}`} />
+                    <Redirect to={`/login${(rest.path || !rest.path) === "/" ? "" : `?redirect=${encodeURIComponent(rest.path)}`}`} />
                 )
             }
         />
