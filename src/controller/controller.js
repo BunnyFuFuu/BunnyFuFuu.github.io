@@ -38,13 +38,25 @@ class Controller extends EventEmitter {
      * @param {string} type 
      */
     async get(type) {
-        let ref = {"project": this.projects, "exp": this.exp, "hobby": this.hobbies}[type];
         try {
             const res = await fetch(`${serverURL}${type}/read`, {
                 method: "GET"
             });
             const json = await res.json();
-            ref = json.docs;
+            switch(type) {
+                case "project":
+                    this.projects = json.docs;
+                    break;
+                case "exp":
+                    this.exp = json.docs;
+                    break;
+                case "hobby":
+                    this.hobbies = json.docs;
+                    break;
+                default: 
+                    console.log("Mistake in get");
+            }
+            return json.docs;
         } catch (e) {
             this.emit("Error", `Uncaught error in reading ${type}`);
         }
@@ -59,8 +71,11 @@ class Controller extends EventEmitter {
         try {
             const res = await fetch(`${serverURL}${type}/update`, {
                 method: "PUT",
+                headers: {"Authorization": `Bearer ${this.token}`, "Content-Type": "application/json"},
                 body: JSON.stringify(doc)
             });
+            await this.get(type);
+            return res.status == 200;
         } catch (e) {
             this.emit("Error", `Uncaught error in updating ${type}`);
         }
@@ -75,8 +90,11 @@ class Controller extends EventEmitter {
         try {
             const res = await fetch(`${serverURL}${type}/delete`, {
                 method: "DELETE",
+                headers: {"Authorization": `Bearer ${this.token}`, "Content-Type": "application/json"},
                 body: JSON.stringify(doc)
             });
+            await this.get(type);
+            return res.status == 200;
 
         } catch (e) {
             this.emit("Error", `Uncaught error in deleting ${type}`);
@@ -90,10 +108,14 @@ class Controller extends EventEmitter {
      */
     async create(type, doc) {
         try {
+            console.log(doc)
             const res = await fetch(`${serverURL}${type}/create`, {
                 method: "POST",
+                headers: {"Authorization": `Bearer ${this.token}`, "Content-Type": "application/json"},
                 body: JSON.stringify(doc)
             });
+            await this.get(type);
+            return res.status == 200;
         } catch (e) {
             this.emit("Error", `Uncaught error in creating ${type}`);
         }
@@ -108,7 +130,7 @@ class Controller extends EventEmitter {
             alert('Failed to retrieve token. Perhaps you do not have authorization?');
             return;
         }
-        this.token = token;
+        this.token = token.__raw;
     }
 }
 

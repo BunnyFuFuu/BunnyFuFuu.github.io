@@ -6,16 +6,26 @@ import Controller from '../controller/controller';
 export default class Projects extends Component {
     constructor(props) {
         super(props);
-        Controller.get("project").then(this.forceUpdate());
+        this.projs = [];
+        this.state = {loading: true};
+        this.updateProjs();
     }
+
+    updateProjs() {
+        Controller.get("project").then(i=>{
+            this.projs = i;
+            this.forceUpdate();
+        });
+    }
+
     render() {
         return (
             <div className="projectsPage">
                 <div className="header"><NavBar/></div>
                 <div className="content">
                     <h1>Side Project Archive</h1>
-                    <p>Here's some information about a few side projects I've done along the way!</p>
-                    { Controller.projects.map(i => <InfoCard doc={i}/>) }
+                    <p class="sub">Here's some information about a few side projects I've done along the way!</p>
+                    { this.projs && this.projs.map(i => <InfoCard doc={i}/>) }
                 </div>
             </div>
         )
