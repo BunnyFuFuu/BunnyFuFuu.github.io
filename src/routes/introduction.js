@@ -13,7 +13,7 @@ export default class Introduction extends Component {
             <div className="introPage">
                 <div className="header"><NavBar/></div>
                 <div className="content">
-                        <h1 class = "IntroBanner">Hi, I'm Andrew Liang!</h1>
+                        <div class = "bannerPad"><h1 class = "IntroBanner">Hi, I'm Andrew Liang!</h1></div>
                         <img class = "PFP" src={ PFP }></img>
                         <p class = "IntroBlurb" >I'm a third-year Computer Science major (with a minor in Management Science) at UCSD. 
                             I'm currently looking for a software development internship. I've got experience in Python, 
