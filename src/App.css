@@ -1,10 +1,14 @@
 .App {
     text-align: center;
     background-color: #555555;
+    background-image: url('./assets/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .App-header {
-    background-image: url();
+    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -42,8 +46,9 @@ div.fadeInHeader {
 
 div.scrolled {
     transition: all 0.5s cubic-bezier(.17,.67,.83,.67);
-    background: rgb(0, 53, 89);
-    background: rgba(0, 53, 89, 0.75);
+    background: rgb(17, 17, 17);
+    background: rgba(17, 17, 17, 0.6);
+    backdrop-filter: blur(5px);
     height: 75px;
 }
 
@@ -98,8 +103,18 @@ div.subhead {
 }
 
 /* Begin Introduction specific styling */
+.bannerPad {
+    align-items: center;
+}
 .IntroBanner {
+    margin-left: auto!important;
+    margin-right: auto!important;
+    padding: 5px;
     font-size: 36px;
+    width: fit-content;
+    background-color: #111111;
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 5px;
 }
 .PFP {
     border-radius: 50%;
@@ -109,6 +124,10 @@ div.subhead {
 .IntroBlurb {
     margin: 2% 5%;
     font-size: 15px;
+    background-color: #111111;
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
 }
 
 @keyframes homeLoad {
@@ -122,35 +141,52 @@ div.subhead {
 
 /* Begin Profile specific styling */
 div.content h1 {
+    margin-left: auto!important;
+    margin-right: auto!important;
     margin: 5px;
+    width: fit-content;
     font-size: 36px;
+    background-color: #111111;
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    padding: 5px;
 }
 div.content p {
     margin: 5px; 
     font-size: 24px;
+    background-color: #111111;
+    background-color: rgba(17, 17, 17, 0.6);
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    padding: 5px;
 }
 
 /* Begin Exp specific styling */
 
 /* Begin Project specific styling */
-h3.statusIP {
+h4.statusIP {
     color: orangered!important;
-    margin: auto 50px;
+    margin: auto 50px!important;
 }
 
-h3.statusComp {
+h4.statusComp {
     color: green!important;
-    margin: auto 50px;
+    margin: auto 50px!important;
 
 }
 
-h3.statusPlanned {
+h4.statusPlanned {
     color: darkcyan!important;
-    margin: auto 50px;
+    margin: auto 50px!important;
 }
 
 h4 {
     color: white;
+}
+
+.infopar {
+    text-align: left;
 }
 
 .MuiTypography-root {
