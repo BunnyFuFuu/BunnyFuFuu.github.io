@@ -47,7 +47,7 @@ class Controller extends EventEmitter {
                 case "project":
                     this.projects = json.docs;
                     break;
-                case "exp":
+                case "experience":
                     this.exp = json.docs;
                     break;
                 case "hobby":

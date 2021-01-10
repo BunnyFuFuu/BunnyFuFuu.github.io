@@ -13,7 +13,7 @@ export default class Manage extends Component {
             this.setState({arr: controller.projects});
             this.forceUpdate();
         });
-        controller.get("exp").then();
+        controller.get("experience").then();
         controller.get("hobby").then();
         /**
          * creating: whether we're making new doc
@@ -45,7 +45,7 @@ export default class Manage extends Component {
             case "project":
                 this.setState({arr: controller.projects});
                 break;
-            case "exp":
+            case "experience":
                 this.setState({arr: controller.exp});
                 break;
             case "hobby":
@@ -123,7 +123,7 @@ export default class Manage extends Component {
                         <button onClick = {this.editingButtonClicked}>Edit</button>
                         <select onChange = {this.onTypeChange} value={this.state.value}>
                             <option value="project">Project</option>
-                            <option value="exp">Experience</option>
+                            <option value="experience">Experience</option>
                             <option value="hobby">Hobby</option>
                         </select>
                         {
@@ -151,7 +151,7 @@ export default class Manage extends Component {
                             <ASInput id="info" value={this.state.selected ? this.state.arr[this.state.selected].info: ""} /><br/>
                             
                         </form>
-                        : this.state.type === "exp" 
+                        : this.state.type === "experience" 
                         ? 
                         <form name="toDB">
                             <label>Title:</label><br/>

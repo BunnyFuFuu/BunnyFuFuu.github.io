@@ -11,7 +11,7 @@ export default class Experience extends Component {
     }
     
     updateExp() {
-        Controller.get("exp").then(i=>{
+        Controller.get("experience").then(i=>{
             this.exp = i;
             this.forceUpdate();
         });

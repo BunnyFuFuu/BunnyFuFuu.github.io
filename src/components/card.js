@@ -44,7 +44,7 @@ export default class InfoCard extends Component {
                 <CardMedia
                     component="img"
                     className="infoCardMedia"
-                    image={this.state.image}
+                    src={this.state.image}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
